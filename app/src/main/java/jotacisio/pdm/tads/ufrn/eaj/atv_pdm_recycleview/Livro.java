@@ -43,7 +43,7 @@ public class Livro {
         listaLivros.add(new Livro("Senhor dos Anéis: o retorno do rei", "Tolkien", 1, true));
         listaLivros.add(new Livro("Dom Casmurro", "Machado de Assis", 4, false));
 
-        for (int i = 0; i<100; i++ ){
+        for (int i = 0; i<50000; i++ ){
             listaLivros.add(new Livro("Livro "+i, "Autor "+i, 2, false));
         }
 
@@ -64,5 +64,9 @@ public class Livro {
 
     public Boolean getLido() {
         return lido;
+    }
+
+    public void setLido (Boolean b) {
+        this.lido = b;
     }
 }

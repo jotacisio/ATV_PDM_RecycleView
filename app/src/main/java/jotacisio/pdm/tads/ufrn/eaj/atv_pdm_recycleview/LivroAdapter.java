@@ -31,11 +31,11 @@ public class LivroAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder viewholder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder viewholder, final int position) {
 
         ViewHolder holder = (ViewHolder) viewholder;
 
-        Livro livroescolhido = listaLivro.get(position);
+        final Livro livroescolhido = listaLivro.get(position);
         holder.textViewTitulo.setText(livroescolhido.getTitulo());
         holder.textViewAutor.setText(livroescolhido.getAutor());
         holder.textViewQuantidade.setText(""+livroescolhido.getQuantidade());
@@ -44,6 +44,19 @@ public class LivroAdapter extends RecyclerView.Adapter {
         }else{
             holder.img.setImageResource(R.drawable.flat);
         }
+
+        holder.img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (livroescolhido.getLido() == true){
+                    livroescolhido.setLido(false);
+                }else {
+                    livroescolhido.setLido(true);
+                }
+                notifyItemChanged(position);
+            }
+        });
+
 
     }
 
